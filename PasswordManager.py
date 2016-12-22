@@ -64,11 +64,12 @@ ReadAccountsFromFile()
 CommandOptions()
 userChoice = input("Enter command option> ")
 userChoice = userChoice.lower()
-while userChoice not in validOptions:
-	print("Not a valid command option. Please enter a valid command option.")
-	userChoice = input("Enter command option> ")
-	userChoice = userChoice.lower()
+
 while userChoice != validOptions[QuitOption]:
+	while userChoice not in validOptions:
+		print("Not a valid command option. Please enter a valid command option.")
+		userChoice = input("Enter command option> ")
+		userChoice = userChoice.lower()
 	if userChoice == validOptions[AddOption]:
 		serviceName = input("Enter service name> ")
 		if serviceName in accounts:
